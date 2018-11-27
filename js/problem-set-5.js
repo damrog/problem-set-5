@@ -27,7 +27,26 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+  let hash = '#';
+   let space = '&nbsp;'
+   let lines = '';
+   while(true) {
+     height = Number(prompt("Enter An Integer Between 1 And 23"));
+     if(height >= 1 && height <= 23 && Number.isInteger(height)) {
+       for(let i=0; i<height; i++) {
+         for(let j=0; j<=(height-2-i);j++) {
+           lines = lines + space;
+         }
+         for(let k=0; k<=(1+i);k++) {
+           lines = lines + hash;
+         }
+         lines = lines + "<br>";
+       }
+       document.getElementById("mario-easy-output").innerHTML="<code>"+lines+"</code>";
 
+       break;
+     }
+   }
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -62,7 +81,30 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
+  let hash = '#';
+    let space = '&nbsp;'
+    let lines = '';
+    while(true) {
+      height = Number(prompt("Enter An Integer Between 1 And 23"));
+      if(height >= 1 && height <= 23 && Number.isInteger(height)) {
+        for(let i=0; i<height; i++) {
+          for(let j=0; j<=(height-2-i);j++) {
+            lines = space + lines;
+          }
+          for(let k=0; k<=(1+i);k++) {
+            lines = lines + hash;
+          }
+          lines = lines + space + space;
+          for(let a=0; a<=(1+i);a++) {
+            lines = lines + hash;
+          }
+          lines = lines + "<br>";
+        }
+        document.getElementById("mario-hard-output").innerHTML="<code>"+lines+"</code>";
+        break;
+      }
 
+    }
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
