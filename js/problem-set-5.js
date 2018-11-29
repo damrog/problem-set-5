@@ -87,19 +87,19 @@ function marioAgain() {
     while(true) {
       height = Number(prompt("Enter An Integer Between 1 And 23"));
       if(height >= 1 && height <= 23 && Number.isInteger(height)) {
-        for(let i=0; i<height; i++) {
-          for(let j=0; j<=(height-2-i);j++) {
-            lines = space + lines;
-          }
-          for(let k=0; k<=(1+i);k++) {
-            lines = lines + hash;
-          }
+      for(let i=0; i<height; i++) {
+        for(let j=0; j<=(height-2-i);j++) {
+          lines = space + lines;
+        }
+        for(let k=0; k<=(1+i);k++) {
+          lines = lines + hash;
+        }
           lines = lines + space + space;
           for(let a=0; a<=(1+i);a++) {
             lines = lines + hash;
-          }
-          lines = lines + "<br>";
         }
+        lines = lines + "<br>";
+      }
         document.getElementById("mario-hard-output").innerHTML="<code>"+lines+"</code>";
         break;
       }
@@ -231,6 +231,20 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+windspeed = Number(prompt('Please enter a positive interger for your windspeed'));
+
+while (windspeed < 0) {
+  windspeed = prompt('Please enter a positive interger for your windspeed')
+  windspeed = parseINT(windspeed);
+}
+console.log(windspeed)
+
+
+if (hurricane=>157){
+  getElementById('hurricane-output').innerHTML= "Category 5 Storm"
+}
+
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
