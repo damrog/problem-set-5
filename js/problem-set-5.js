@@ -364,46 +364,41 @@ function gymnastics() {
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
 
-  let valid = false;
-   let fourscore = [];
-   let aver = 0;
+  do{
+    scoreNum1 = Number(prompt("Please enter a score between 0 and 10"));
+  } while (scoreNum1 < 0.0 || scoreNum1 > 10.0|| !Number.isInteger(scoreNum1)){
+  scores.push(scoreNum1);
+}
+  do{
+    scoreNum2 = Number(prompt("Please enter a score between 0 and 10"));
+  } while (scoreNum2 < 0.0 || scoreNum2 > 10.0|| !Number.isInteger(scoreNum2)){
+  scores.push(scoreNum2);
+}
+  do{
+    scoreNum3 = Number(prompt("Please enter a score between 0 and 10"));
+  } while (scoreNum3 < 0.0 || scoreNum3 > 10.0|| !Number.isInteger(scoreNum3)){
+  scores.push(scoreNum3);
+}
+  do{
+    scoreNum4 = Number(prompt("Please enter a score between 0 and 10"));
+  } while (scoreNum4 < 0.0 || scoreNum4 > 10.0|| !Number.isInteger(scoreNum4)){
+  scores.push(scoreNum4);
+}
+  do{
+    scoreNum5 = Number(prompt("Please enter a score between 0 and 10"));
+  } while (scoreNum5 < 0.0 || scoreNum5 > 10.0|| !Number.isInteger(scoreNum5)){
+  scores.push(scoreNum5);
+}
+  do{
+    scoreNum6 = Number(prompt("Please enter a score between 0 and 10"));
+  } while (scoreNum6 < 0.0 || scoreNum6 > 10.0|| !Number.isInteger(scoreNum6)){
+  scores.push(scoreNum6);
+}
+  let totalScore = Number(scoreNum1) + Number(scoreNum2) + Number(scoreNum3) + Number(scoreNum4) + Number(scoreNum5) + Number(scoreNum6);
+  let averageScore = (totalScore - Math.max(scoreNum1, scoreNum2, scoreNum3, scoreNum4, scoreNum5, scoreNum6) - Math.min(scoreNum1, scoreNum2, scoreNum3, scoreNum4, scoreNum5, scoreNum6)) / 4;
+  let div6 = document.getElementById('gymnastics-output');
 
-  while (valid == false) {
-    valid = true
-    let scoresuser = prompt("Enter scores Between 0.0 and 10.0 with spaces in between");
-    scores = scoresuser.split(" ");
-    for (i=0; i<scores.length; i++) {
-      if(0.0 < Number(scores[i]) < 10.0) {
-        scores[i] = Number(scores[i]);
-      }
-      else {
-        valid = false;
-      }
-    }
-  }
-
-   for(let h = 0; h <= scores.length-1; h++) {
-   let k;
-   let el = scores[h];
-   for (k = h-1; k>=0 && (scores[k] > el); k--) {
-    scores[k+1] = scores[k];
-   }
-   scores[k+1] = el;
-  }
-  console.log(scores);
-  let min = scores[0];
-  let max = scores[scores.length - 1];
-  let origscores = Array.from(scores)
-  scores.splice(0, 1);
-  scores.splice(scores.length - 1, 1);
-  for (j=0;j<=scores.length - 1;j++) {
-    avere += scores[j];
-  }
-  aver = aver/scores.length;
-  aver = aver.toFixed(2);
-  document.getElementById("gymnastics-output").innerHTML = "Discarded: " + min + ", " + max + "<br/>Score: " + average;
-
-  scores = origscores;
+  div6.innerHTML = "Discarded: " + Math.min(scoreNum1, scoreNum2, scoreNum3, scoreNum4, scoreNum5, scoreNum6) + ', ' + Math.max(scoreNum1, scoreNum2, scoreNum3, scoreNum4, scoreNum5, scoreNum6) + '<br />Score: ' + averageScore.toFixed(2);
 
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
@@ -472,6 +467,79 @@ function reportCard() {
    *       grades the user enters, respectively.
    */
 
+  let testScore;
+   let quizScore;
+   let homeWorkscore;
+   let testAverage;
+   let quizAverage;
+   let homeworkAverage;
+   let finalGradeAverage;
+  
+   testScore = prompt("Input an integer between 1 and 100 for your testscore. Continue this process until all of your scores are inputted. Once all scores are inputted enter -1. ");
+  while (testScore) {
+    testScore = parseFloat(testScore);
+ if (testScore == -1){
+   testScore = false;
+   break;
+ }
+else if(testScore <= 100.00 && 0.0 <= testScore)
+ {
+   tests += 1;
+   testTotal += testScore;
+ }
+ else{
+ }
+ testScore = prompt("Enter an integer between 1 and 100 for your testscore. Continue until all your scores are inputted, once all scores are inputted enter -1. ")
+}
+quizScore = prompt("Enter an integer between 1 and 100 for your quizscore. Continue until all your scores are inputted, once all scores are inputted enter -1. ");
+while (quizScore) {
+ quizScore = parseFloat(quizScore);
+if (quizScore == -1){
+quizScore = false;
+break;
+ }
+else if(quizScore <= 100.00 && 0.0 <= quizScore)
+{
+quizzes += 1;
+quizTotal += quizScore;
+}
+else{
+}
+quizScore = prompt("Enter an integer between 1 and 100 for your quizscore. Continue until all your scores are inputted, once all scores are inputted enter -1. ")
+}
+homeWorkscore = prompt("Enter an integer between 1 and 100 for your homeworkscore. Continue until all your scores are inputted, once all scores are inputted enter -1. ");
+while (homeWorkscore) {
+ homeWorkscore = parseFloat(homeWorkscore);
+if (homeWorkscore == -1){
+homeWorkscore = false;
+break;
+}
+else if(homeWorkscore <= 100.00 && 0.0 <= homeWorkscore)
+{
+homeworks += 1;
+homeworkTotal += homeWorkscore;
+}
+else{
+}
+homeWorkscore = prompt("Enter an integer between 1 and 100 for your homeworkscore. Continue until all your scores are inputted, once all scores are inputted enter -1. ")
+}
+testAverage = testTotal/tests;
+quizAverage = quizTotal/quizzes;
+homeworkAverage = homeworkTotal/homeworks;
+finalGradeAverage = (testAverage * 0.6) + (quizAverage * 0.3) + (homeworkAverage * 0.1);
+
+console.log(homeWorkscore)
+console.log(quizScore)
+console.log(testScore)
+console.log(testAverage)
+console.log(quizAverage)
+console.log(homeworkAverage)
+console.log(finalGradeAverage)
+  
+let div7=document.getElementById("report-card-output")
+div7.innerHTML = "Tests: " + testAverage.toFixed(2) + "</br>Quizzes: " + quizAverage.toFixed(2) + "</br>Homework: " + homeworkAverage.toFixed(2) + "</br>Grade: " + finalGradeAverage.toFixed(2);
+  
+  
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
